@@ -1,0 +1,48 @@
+<section class="bg-primary-400 min-h-fit md:h-screen flex">
+  <div
+    class="container bg-primary-400 px-5 mx-auto flex flex-wrap my-auto pt-28 lg:pt-48"
+  >
+    <div class="max-w-lg">
+      <p class="text-6xl font-semibold my-6">
+        Unlock Cool Comfort, <span class="text-secondary-200">Today!</span>
+      </p>
+
+      <p class="text-lg my-6">
+        Your trusted source for fast and reliable AC and fridge repairs. We
+        deliver swift solutions to keep your home cool and your food fresh.
+        Schedule your service now for immediate relief.
+      </p>
+      <h2></h2>
+      <p></p>
+
+      <aliya-button
+        (click)="this.canShowModal = true"
+        animation="C"
+        shade="L"
+        name="Repair Request"
+        size="M"
+      ></aliya-button>
+    </div>
+    <div class="mx-auto relative z-0">
+      <div class="absolute top-14 left-0">
+        <i class="fas text-4xl animate-bounce spin-slow fa-temperature-low"></i>
+      </div>
+      <div class="absolute text-2xl animate-bounce top-0 right-0">
+        <i class="fas fa-wrench"></i>
+      </div>
+      <img
+        class="ml-auto lg:pt-12 ml-auto w-[60%] lg:w-full"
+        src="../../../assets/3d-casual-life-smiling-man-wearing-headset-with-microphone.png"
+        alt=""
+      />
+      <div class="absolute bottom-0 animate-bounce right-0">
+        <i class="fas text-2xl fa-tools"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aliya-modal
+  (onClose)="this.canShowModal = false"
+  [show]="this.canShowModal"
+></aliya-modal>

@@ -1,0 +1,39 @@
+<button
+  type="submit"
+  class="transition-all duration-500 relative group overflow-clip
+  {{
+    this.animation === 'F' && this.shade === 'D'
+      ? 'hover:bg-secondary-200'
+      : this.animation === 'F' && this.shade === 'L'
+      ? 'hover:bg-dark-200'
+      : this.animation === 'F' && this.shade === 'W'
+      ? 'hover:bg-dark-200'
+      : ''
+  }}
+ {{
+    this.shade == 'D'
+      ? 'bg-dark-200 hover:bg-secondary-200 border shadow-lg border-dark-200 text-secondary-200   hover:text-dark-200'
+      : this.shade == 'L'
+      ? 'text-dark bg-secondary-200 border-dark-200 shadow-lg border  hover:text-secondary-200'
+      : this.shade == 'W'
+      ? 'border shadow-xl bg-white border-dark-200  hover:text-secondary-200'
+      : 'text-secondary-200 hover:text-dark-200'
+  }}
+ {{
+    this.size === 'S'
+      ? ' rounded-lg font-semibold text-sm px-1 py-1'
+      : this.size == 'M'
+      ? 'px-3 py-2 rounded-lg  font-medium'
+      : 'px-4 py-2 rounded-lg font-semibold text-lg'
+  }}
+ "
+>
+  <span class="z-30 relative">{{ name }}</span>
+  <span
+    *ngIf="this.shade != 'NA' && this.animation === 'C'"
+    class="absolute transition-all duration-1000 z-20 top-[50%] group-hover:w-[200%] left-[50%] -translate-x-[50%] -translate-y-[50%]  aspect-square rounded-full w-[20%] opacity-0 group-hover:opacity-100
+    {{ this.shade === 'D' ? 'bg-secondary-200' : 'bg-dark-200' }}
+    "
+  >
+  </span>
+</button>

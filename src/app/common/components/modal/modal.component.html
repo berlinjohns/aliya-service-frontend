@@ -1,0 +1,301 @@
+<section
+  *ngIf="show"
+  class="flex items-center justify-center h-screen w-full fixed top-0 bg-gray-800 left-0 bg-opacity-70 z-50"
+>
+  <div class="m-auto bg-dark-200 text-white w-[90%] md:w-[70%] relative p-4">
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+      <i
+        (click)="this.modalClose()"
+        class="cursor-pointer fas fa-window-close text-red-500 absolute top-2 right-2"
+      ></i>
+      <h4 class="text-center p-2">Repair Request</h4>
+
+      <div class="py-2 px-5">
+        <label
+          for="name"
+          class="block mb-2 text-sm font-medium"
+          class=" {{
+            (!requestForm.get('name')?.valid &&
+              requestForm.get('name')?.touched) ||
+            (!requestForm.get('name')?.valid && submitted)
+              ? 'text-red-700'
+              : requestForm.get('name')?.touched
+              ? 'text-green-700'
+              : ' text-gray-900 dark:text-white'
+          }}"
+        >
+          Your Name
+        </label>
+
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="
+          {{
+            (!requestForm.get('name')?.valid &&
+              requestForm.get('name')?.touched) ||
+            (!requestForm.get('name')?.valid && submitted)
+              ? 'border-red-500 dark:border-red-500'
+              : requestForm.get('name')?.touched
+              ? 'border-green-500 dark:border-green-500'
+              : 'border-gray-300'
+          }}
+          shadow-sm bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+          placeholder="Enter Your Name Here.."
+          required
+        />
+        <p
+          *ngIf="
+            (!requestForm.get('name')?.valid &&
+              requestForm.get('name')?.touched) ||
+            (!requestForm.get('name')?.valid && submitted)
+          "
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          <span class="font-medium">*Enter Your Name here..!</span>
+        </p>
+      </div>
+
+      <div class="py-2 px-5">
+        <label
+          for="email"
+          class="
+        block mb-2 text-sm font-medium
+        {{
+            (!requestForm.get('email')?.valid &&
+              requestForm.get('email')?.touched) ||
+            (!requestForm.get('email')?.valid && submitted)
+              ? 'text-red-700'
+              : requestForm.get('email')?.touched
+              ? 'text-green-700'
+              : ' text-gray-900 dark:text-white'
+          }}"
+          >Email</label
+        >
+        <div class="relative">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+          >
+            <svg
+              class="w-4 h-4 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 16"
+            >
+              <path
+                d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"
+              />
+              <path
+                d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"
+              />
+            </svg>
+          </div>
+          <input
+            formControlName="email"
+            type="email"
+            id="email-address-icon"
+            class="
+            block mb-2 text-sm font-medium
+            {{
+              (!requestForm.get('email')?.valid &&
+                requestForm.get('email')?.touched) ||
+              (!requestForm.get('email')?.valid && submitted)
+                ? 'border-red-500 dark:border-red-500'
+                : requestForm.get('email')?.touched
+                ? 'border-green-500 dark:border-green-500'
+                : 'border-gray-300'
+            }}
+            
+            bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="example@gmail.com"
+          />
+        </div>
+        <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+          <span
+            *ngIf="
+              (requestForm.get('email')?.hasError('required') &&
+                requestForm.get('email')?.touched) ||
+              (requestForm.get('email')?.hasError('required') && submitted)
+            "
+            class="font-medium"
+            >*Email is Required!</span
+          >
+          <span
+            *ngIf="
+              (requestForm.get('email')?.hasError('email') &&
+                requestForm.get('email')?.touched) ||
+              (requestForm.get('email')?.hasError('email') && submitted)
+            "
+            class="font-medium"
+            >*Please Enter Your Valid Email!</span
+          >
+        </p>
+      </div>
+
+      <div class="py-2 px-5">
+        <label
+          class="
+        block mb-2 text-sm font-medium
+        {{
+            (!requestForm.get('phoneNumber')?.valid &&
+              requestForm.get('phoneNumber')?.touched) ||
+            (!requestForm.get('phoneNumber')?.valid && submitted)
+              ? 'text-red-700'
+              : requestForm.get('phoneNumber')?.touched
+              ? 'text-green-700'
+              : ' text-gray-900 dark:text-white'
+          }}"
+          for="phone-number"
+        >
+          Phone Number
+        </label>
+        <div class="relative">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+          >
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <input
+            formControlName="phoneNumber"
+            type="text"
+            id="phone-number"
+            class="
+            block mb-2 text-sm font-medium
+            {{
+              (!requestForm.get('phoneNumber')?.valid &&
+                requestForm.get('phoneNumber')?.touched) ||
+              (!requestForm.get('phoneNumber')?.valid && submitted)
+                ? 'border-red-500 dark:border-red-500'
+                : requestForm.get('phoneNumber')?.touched
+                ? 'border-green-500 dark:border-green-500'
+                : 'border-gray-300'
+            }}
+            
+            bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Enter your active phone number"
+          />
+        </div>
+        <p
+          *ngIf="
+            (requestForm.get('phoneNumber')?.hasError('required') &&
+              requestForm.get('phoneNumber')?.touched) ||
+            (requestForm.get('phoneNumber')?.hasError('required') && submitted)
+          "
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          <span class="font-medium">*Phone Number is required.</span>
+        </p>
+      </div>
+
+      <div class="py-2 px-5">
+        <label
+          for="appliance"
+          class="
+          block mb-2 text-sm font-medium
+          {{
+            (!requestForm.get('appliance')?.valid &&
+              requestForm.get('appliance')?.touched) ||
+            (!requestForm.get('appliance')?.valid && submitted)
+              ? 'text-red-700'
+              : requestForm.get('appliance')?.touched
+              ? 'text-green-700'
+              : ' text-gray-900 dark:text-white'
+          }}"
+        >
+          Appliance
+        </label>
+        <select
+          formControlName="appliance"
+          id="appliance"
+          class="
+          block mb-2 text-sm font-medium
+          {{
+            (!requestForm.get('appliance')?.valid &&
+              requestForm.get('appliance')?.touched) ||
+            (!requestForm.get('appliance')?.valid && submitted)
+              ? 'border-red-500 dark:border-red-500'
+              : requestForm.get('appliance')?.touched
+              ? 'border-green-500 dark:border-green-500'
+              : 'border-gray-300'
+          }}
+          
+          bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option value="0">AC</option>
+          <option value="1">Fridge</option>
+        </select>
+        <p
+          *ngIf="
+            (requestForm.get('appliance')?.hasError('required') &&
+              requestForm.get('appliance')?.touched) ||
+            (requestForm.get('appliance')?.hasError('required') && submitted)
+          "
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          <span class="font-medium">*Please select the Appliance.</span>
+        </p>
+      </div>
+
+      <div class="py-2 px-5">
+        <label
+          for="message"
+          class="
+          block mb-2 text-sm font-medium
+          {{
+            (!requestForm.get('address')?.valid &&
+            requestForm.get('address')?.touched) || (
+              !requestForm.get('address')?.valid &&
+              submitted
+            )
+              ? 'text-red-700'
+              : requestForm.get('address')?.touched
+              ? 'text-green-700'
+              : ' text-gray-900 dark:text-white'
+          }}"
+          >Your Address</label
+        >
+        <textarea
+          formControlName="address"
+          id="message"
+          rows="4"
+          placeholder="Enter Your Address here..."
+          class="
+          block mb-2 text-sm font-medium
+          {{
+             (!requestForm.get('address')?.valid &&
+            requestForm.get('address')?.touched) || 
+            (!requestForm.get('address')?.valid &&
+            submitted)
+              ? 'border-red-500 dark:border-red-500'
+              : requestForm.get('address')?.touched
+              ? 'border-green-500 dark:border-green-500'
+              : 'border-gray-300'
+          }}
+          
+          bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        ></textarea>
+        <p
+          *ngIf="
+            (requestForm.get('address')?.hasError('required') &&
+              requestForm.get('address')?.touched) ||
+            (requestForm.get('address')?.hasError('required') && submitted)
+          "
+          class="mt-2 text-sm text-red-600 dark:text-red-500"
+        >
+          <span class="font-medium">*Please Enter your Current Address!</span>
+        </p>
+      </div>
+      <div class="p-4 d-flex text-center">
+        <aliya-button
+          class="mx-auto"
+          name="Submit"
+          animation="C"
+          shade="L"
+          size="M"
+        ></aliya-button>
+      </div>
+    </form>
+  </div>
+</section>

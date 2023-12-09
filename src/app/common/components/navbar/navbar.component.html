@@ -1,0 +1,132 @@
+<!-- Mobile Navbar -->
+<nav
+  class="absolute w-full  top-0 left-0 h-screen z-50 {{
+    isSideBarShowing ? 'flex' : 'hidden'
+  }} "
+>
+  <div class="bg-primary-400 w-full shadow-2xl md:max-w-sm">
+    <div class="flex justify-between p-5">
+      <a href="">
+        <img
+          class="w-10 m-1 rounded-xl h-10"
+          width="54"
+          height="54"
+          src="../navbar/../../../../assets/4aed7470fb66433d83a649d2a0a285ec.png"
+          alt=""
+        />
+      </a>
+      <i (click)="this.closeSideBar()" class="fas fa-times"></i>
+    </div>
+
+    <div>
+      <div class="px-5">
+        <aliya-menu></aliya-menu>
+      </div>
+      <li class="flex gap-1 justify-center mt-5">
+        <i class="fa-solid fa-mobile-screen p-2"></i
+        ><a
+          target="_blank"
+          href="tel:+9629802155"
+          class="hover:text-emerald-500 transition-all duration-500"
+        >
+          +919629802155</a
+        >
+      </li>
+      <li class="flex gap-1 justify-center">
+        <i class="fa-solid p-2 fa-envelope"></i> xyz@gmail.com
+      </li>
+      <ul class="flex justify-center py-5">
+        <li class="flex gap-6">
+          <a target="_blank" href="">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a target="_blank" href="">
+            <i class="fab fa-whatsapp px-2"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    (click)="this.closeSideBar()"
+    class="hidden bg-gray-900 opacity-60 md:block md:w-full"
+  >
+    test
+  </div>
+</nav>
+
+<!-- Large screen navbar -->
+<header class="absolute w-full">
+  <div class="bg-dark-200 hidden lg:block">
+    <div class="container mx-auto text-white py-2">
+      <ul class="flex justify-between">
+        <li class="text-center gap-1 ml-2">For Unstoppable Cooling Service</li>
+        <li class="flex gap-1">
+          <i class="fa-solid fa-mobile-screen p-1"></i
+          ><a
+            target="_blank"
+            href="tel:+9629802155"
+            class="hover:text-emerald-500 transition-all duration-500"
+          >
+            +919629802155</a
+          >
+        </li>
+        <li class="flex gap-1">
+          <i class="fa-solid p-1 fa-envelope"></i> xyz@gmail.com
+        </li>
+        <li>
+          <ul class="flex">
+            <li class="flex gap-6">
+              <a target="_blank" href="">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a target="_blank" href="">
+                <i class="fab fa-whatsapp px-2"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="px-5 {{
+      isMenuScrolled
+        ? 'fixed top-0 w-full bg-dark-200 z-50   shadow-xl animate__slideInDown'
+        : 'pt-5 '
+    }}"
+  >
+    <div
+      class="container  flex justify-between items-center {{
+        isMenuScrolled ? '' : ' border rounded-xl bg-primary-400'
+      }}  mx-auto   border-opacity-30 border-dark-200 "
+    >
+      <a href="">
+        <img
+          class="w-10 m-1 rounded-xl h-10"
+          width="54"
+          height="54"
+          src="../navbar/../../../../assets/4aed7470fb66433d83a649d2a0a285ec.png"
+          alt=""
+        />
+      </a>
+      <a>
+        <i
+          (click)="this.openSideBar()"
+          class="fas fa-bars w-8 h-8 lg:hidden {{
+            isMenuScrolled ? 'text-white' : ''
+          }}"
+        ></i>
+      </a>
+      <aliya-menu class="hidden lg:block"></aliya-menu>
+      <ul class="flex hidden lg:flex p-3 font-semibold text-slate-700 text-lg">
+        <aliya-button
+          animation="C"
+          shade="L"
+          name="Repair Request"
+          size="S"
+        ></aliya-button>
+      </ul>
+    </div>
+  </div>
+</header>
