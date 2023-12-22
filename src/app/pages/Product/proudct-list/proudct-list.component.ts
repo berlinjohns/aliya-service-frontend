@@ -11,6 +11,6 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
 })
 export class ProductListComponent implements OnInit {
    ngOnInit(): void {
-     console.log('renderd')
+    
    }
 }

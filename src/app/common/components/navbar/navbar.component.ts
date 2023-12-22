@@ -18,7 +18,7 @@ export class NavbarComponent {
     if (window.pageYOffset > 100) this.isMenuScrolled = true;
     else this.isMenuScrolled = false;
 
-    console.log(this.isMenuScrolled);
+   
   }
 
   openSideBar(): void {

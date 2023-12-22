@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import {  Component } from '@angular/core';
+import { CommonModule} from '@angular/common';
 
 @Component({
   selector: 'aliya-testimonials',
