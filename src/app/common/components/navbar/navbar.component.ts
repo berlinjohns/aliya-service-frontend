@@ -2,13 +2,14 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
 import { ButtonComponent } from "../../../shared/components/button/button.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'aliya-navbar',
     standalone: true,
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
-    imports: [CommonModule, MenuComponent, ButtonComponent]
+    imports: [CommonModule, MenuComponent, ButtonComponent,RouterLink]
 })
 export class NavbarComponent {
   isMenuScrolled: boolean = false;
