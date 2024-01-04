@@ -21,11 +21,21 @@ export class NavbarComponent {
    
   }
 
+  disableBodyScrolling() {
+    document.body.style.setProperty('overflow','hidden')
+  }
+
+  enableBodyScrolling() { 
+    document.body.style.setProperty('overflow','scroll')
+  }
+
   openSideBar(): void {
     this.isSideBarShowing = true;
+    this.disableBodyScrolling();
   }
 
   closeSideBar(): void {
     this.isSideBarShowing = false;
+    this.enableBodyScrolling();
   }
 }

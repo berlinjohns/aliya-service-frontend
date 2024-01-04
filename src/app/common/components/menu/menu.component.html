@@ -2,7 +2,8 @@
 class="lg:flex  text-white font-semibold text-slate-700 gap-5 xl:gap-14 lg:text-lg"
 >
 <li [routerLink]="['/products']" routerLinkActive="router-link-active"  class="py-3 cursor-pointer  border-t lg:border-0">Products</li>
-<li class="py-3 border-y lg:border-0 cursor-pointer">Our Services</li>
-<li class="py-3 border-y lg:border-0 cursor-pointer">Why Us</li>
-<li class="py-3 border-y lg:border-0 cursor-pointer">Contact Us</li>
+<li  (click)="toService()" class="py-3 border-y lg:border-0 cursor-pointer">Our Services</li>
+<li (click)="toWhyUs()" class="py-3 border-y lg:border-0 cursor-pointer">Why Us</li>
+<li (click)="toTestimonials()" class="py-3 border-y lg:border-0 cursor-pointer">Testimonials</li>
+<li (click)="toContactUs()" class="py-3 border-y lg:border-0 cursor-pointer">Contact Us</li>
 </ul>

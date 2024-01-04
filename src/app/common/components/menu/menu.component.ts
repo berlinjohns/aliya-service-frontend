@@ -9,5 +9,19 @@ import { RouterLink } from '@angular/router';
   imports:[RouterLink]
 })
 export class MenuComponent {
+   toService():void{
+    document.getElementById("services")?.scrollIntoView();
+   }
 
+   toTestimonials():void{
+    document.getElementById("testimonials")?.scrollIntoView();
+   }
+
+   toContactUs():void{
+    document.getElementById("footer")?.scrollIntoView();
+   }
+
+   toWhyUs():void{
+    document.getElementById("whyus")?.scrollIntoView();
+   }
 }
