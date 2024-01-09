@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { MenuService } from 'src/app/core/services/menu/menu.service';
 
 @Component({
   selector: 'aliya-menu',
@@ -9,19 +10,15 @@ import { RouterLink } from '@angular/router';
   imports:[RouterLink]
 })
 export class MenuComponent {
-   toService():void{
-    document.getElementById("services")?.scrollIntoView();
-   }
+   menuService = inject(MenuService);
+   router=inject(Router);
 
-   toTestimonials():void{
-    document.getElementById("testimonials")?.scrollIntoView();
-   }
+   
 
-   toContactUs():void{
-    document.getElementById("footer")?.scrollIntoView();
-   }
-
-   toWhyUs():void{
-    document.getElementById("whyus")?.scrollIntoView();
+   navigateTo(section:string){
+    document.getElementById(section)?.scrollIntoView();
+    this.menuService.isSideBarShowing.set(false);
+    this.router.navigateByUrl('');
+    this.menuService.enableBodyScrolling();
    }
 }

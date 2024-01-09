@@ -1,8 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { RouterLink } from '@angular/router';
+import { MenuService } from 'src/app/core/services/menu/menu.service';
 
 @Component({
     selector: 'aliya-navbar',
@@ -12,8 +13,11 @@ import { RouterLink } from '@angular/router';
     imports: [CommonModule, MenuComponent, ButtonComponent,RouterLink]
 })
 export class NavbarComponent {
+  
+  menuService:MenuService=inject(MenuService)
   isMenuScrolled: boolean = false;
-  isSideBarShowing: boolean = false;
+  isSideBarShowing=this.menuService.isSideBarShowing;
+
   @HostListener('window:scroll', ['$event'])
   scrollCheck() {
     if (window.pageYOffset > 100) this.isMenuScrolled = true;
@@ -22,21 +26,15 @@ export class NavbarComponent {
    
   }
 
-  disableBodyScrolling() {
-    document.body.style.setProperty('overflow','hidden')
-  }
-
-  enableBodyScrolling() { 
-    document.body.style.setProperty('overflow','scroll')
-  }
-
+  
   openSideBar(): void {
-    this.isSideBarShowing = true;
-    this.disableBodyScrolling();
+    document.getElementById("hero")?.scrollIntoView();
+    this.menuService.isSideBarShowing.set(true);
+    this.menuService.disableBodyScrolling();
   }
 
   closeSideBar(): void {
-    this.isSideBarShowing = false;
-    this.enableBodyScrolling();
+    this.menuService.isSideBarShowing.set(false);
+    this.menuService.enableBodyScrolling();
   }
 }

@@ -13,4 +13,5 @@ export class ButtonComponent {
   @Input()shade: string = 'W';//D,L,W,NA
   @Input() animation: string = 'C';//CIRCLE,FADE
   @Input() name: string = "";
+  @Input() isDisable:boolean=false;
 }
