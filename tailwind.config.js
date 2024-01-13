@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const AnimateCSS = require("animated-tailwindcss");
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
@@ -19,9 +18,7 @@ module.exports = {
           200: "#03071E",
         },
       },
-      animation: {
-        "spin-slow": "spin 4s linear infinite",
-      },
+     
     },
    
   },
