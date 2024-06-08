@@ -1,9 +1,6 @@
 <section class="bg-primary-400 min-h-fit md:min-h-fit pt-40">
   <div class="container mx-auto p-3 grid grid-cols-2 md:grid-cols-4 gap-4">
-    <ng-container *ngFor="let data of products">
-      
-    <aliya-proudct-card [product]="data"></aliya-proudct-card>
-    </ng-container>
+    
     
 
   <ng-container *ngIf="isLoading()"  >
@@ -41,5 +38,10 @@
     </div>
   </div>
   </ng-container>
+
+  <div  *ngFor="let data of products">
+      
+    <aliya-product-card [product]="data"></aliya-product-card>
+    </div>
   </div>
 </section>

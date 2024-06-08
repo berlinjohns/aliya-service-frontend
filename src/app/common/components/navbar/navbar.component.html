@@ -126,6 +126,7 @@
       <aliya-menu class="hidden lg:block"></aliya-menu>
       <ul class="flex hidden lg:flex p-3 font-semibold text-slate-700 text-lg">
         <aliya-button
+        (click)="this.canShowModal = true"
           animation="C"
           shade="L"
           name="Repair Request"
@@ -135,3 +136,7 @@
     </div>
   </div>
 </header>
+<aliya-modal
+  (onClose)="this.canShowModal = false"
+  [show]="this.canShowModal"
+></aliya-modal>

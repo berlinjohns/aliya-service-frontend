@@ -4,20 +4,21 @@ import { MenuComponent } from '../menu/menu.component';
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { RouterLink } from '@angular/router';
 import { MenuService } from 'src/app/core/services/menu/menu.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
     selector: 'aliya-navbar',
     standalone: true,
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
-    imports: [CommonModule, MenuComponent, ButtonComponent,RouterLink]
+    imports: [CommonModule, MenuComponent, ButtonComponent,RouterLink,ModalComponent]
 })
 export class NavbarComponent {
   
   menuService:MenuService=inject(MenuService)
   isMenuScrolled: boolean = false;
   isSideBarShowing=this.menuService.isSideBarShowing;
-
+  canShowModal: boolean = false;
   @HostListener('window:scroll', ['$event'])
   scrollCheck() {
     if (window.pageYOffset > 100) this.isMenuScrolled = true;

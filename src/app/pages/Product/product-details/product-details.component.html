@@ -4,7 +4,9 @@
       <div>
         <img
           class="p-1 md:p-5 rounded-t-lg"
-          [src]=product.thumbnail
+          [ngSrc]="product.thumbnail"
+          width="500"
+          height="500"
           [alt]=product.name
         />
       </div>
