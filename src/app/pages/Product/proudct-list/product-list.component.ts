@@ -18,10 +18,10 @@ import { MenuService } from 'src/app/core/services/menu/menu.service';
   
 })
 export class ProductListComponent implements OnInit {
-
+   
    products:Product[]=[];
    router:Router=inject(Router);
-   menuService:MenuService=inject(MenuService);
+   private menuService:MenuService=inject(MenuService);
    destroyRef:DestroyRef=inject(DestroyRef);
    isLoading=signal<boolean>(true);
    constructor(private productService:ProductService){
@@ -30,6 +30,8 @@ export class ProductListComponent implements OnInit {
    ngOnInit(): void {
      this.getAllProducts()
      this.menuService.isSideBarShowing.set(false);
+     this.menuService.enableBodyScrolling()
+    
    }
 
    getAllProducts(){
@@ -40,6 +42,10 @@ export class ProductListComponent implements OnInit {
      });
    }
 
+   trackByFn(index: number, item: any): number {
+    return index;
+  }
+  
    
    
 }

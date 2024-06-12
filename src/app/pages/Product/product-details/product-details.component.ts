@@ -1,11 +1,10 @@
-import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { Component, DestroyRef, OnInit,inject, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/core/services/product/product.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Product } from 'src/app/core/models/product.types';
+import { Product, productDetails } from 'src/app/core/models/product.types';
 
 @Component({
   selector: 'aliya-product-details',
@@ -32,6 +31,12 @@ export class ProductDetailsComponent implements OnInit {
      
 
    }
+
+   trackByFn(index: number, item: any): number {
+    return index;
+  }
+  
+  
 
    getProductDetailsById(id:string){
       this.productService.getProductDetailById(id).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
