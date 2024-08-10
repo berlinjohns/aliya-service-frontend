@@ -17,6 +17,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "optimization": {
+              "scripts": true,
+              "styles": {
+                "minify": true,
+                "inlineCritical": true,
+                "removeSpecialComments":true
+              },
+              "fonts": true
+            },
             "outputPath": "dist/aliyaservice",
             "index": "src/index.html",
             "main": "src/main.ts",
