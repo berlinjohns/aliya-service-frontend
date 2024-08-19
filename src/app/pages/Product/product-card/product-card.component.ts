@@ -1,15 +1,15 @@
-import { Component, Input, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { Product } from 'src/app/core/models/product.types';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'aliya-product-card',
   standalone: true,
-  imports: [CommonModule,ButtonComponent,NgOptimizedImage],
+  imports: [NgOptimizedImage,RouterLink],
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+  styleUrls: ['./product-card.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProductCardComponent {
 

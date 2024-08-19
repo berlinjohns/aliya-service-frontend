@@ -1,17 +1,17 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 
 
 @Component({
   selector: 'aliya-error500-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './error500-page.component.html',
-  styleUrls: ['./error500-page.component.scss']
+  styleUrls: ['./error500-page.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class Error500PageComponent {
-  location=inject(Location);
+ private location=inject(Location);
 
   goBack():void{
     this.location.back();

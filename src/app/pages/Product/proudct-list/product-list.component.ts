@@ -1,5 +1,5 @@
-import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { ChangeDetectionStrategy, Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
 import { ProductService } from 'src/app/core/services/product/product.service';
 import { Product } from 'src/app/core/models/product.types';
@@ -11,10 +11,11 @@ import { MenuService } from 'src/app/core/services/menu/menu.service';
 @Component({
   selector: 'aliya-product-list',
   standalone: true,
-  imports: [CommonModule,ButtonComponent,ProductCardComponent],
+  imports: [NgFor,NgIf,ButtonComponent,ProductCardComponent],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
-  providers:[ProductService]
+  providers:[],
+  changeDetection:ChangeDetectionStrategy.OnPush
   
 })
 export class ProductListComponent implements OnInit {

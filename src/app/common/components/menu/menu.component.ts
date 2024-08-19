@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MenuService } from 'src/app/core/services/menu/menu.service';
 
@@ -7,7 +7,8 @@ import { MenuService } from 'src/app/core/services/menu/menu.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
   standalone: true,
-  imports:[RouterLink]
+  imports:[RouterLink],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
    menuService = inject(MenuService);

@@ -1,5 +1,4 @@
 import { Component, HostListener, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
 import { ButtonComponent } from "../../../shared/components/button/button.component";
 import { RouterLink } from '@angular/router';
@@ -11,11 +10,11 @@ import { ModalComponent } from '../modal/modal.component';
     standalone: true,
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
-    imports: [CommonModule, MenuComponent, ButtonComponent,RouterLink,ModalComponent]
+    imports: [ MenuComponent, ButtonComponent,RouterLink,ModalComponent]
 })
 export class NavbarComponent {
   
-  menuService:MenuService=inject(MenuService)
+  private readonly menuService:MenuService=inject(MenuService)
   isMenuScrolled: boolean = false;
   isSideBarShowing=this.menuService.isSideBarShowing;
   canShowModal: boolean = false;

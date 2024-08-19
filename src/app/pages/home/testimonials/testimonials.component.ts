@@ -1,12 +1,12 @@
-import {  Component } from '@angular/core';
-import { CommonModule} from '@angular/common';
+import {  ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'aliya-testimonials',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './testimonials.component.html',
-  styleUrls: ['./testimonials.component.scss']
+  styleUrls: ['./testimonials.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class TestimonialsComponent  {
   

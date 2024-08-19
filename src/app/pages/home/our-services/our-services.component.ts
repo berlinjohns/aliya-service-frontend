@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {  AsyncPipe, NgFor } from '@angular/common';
 import { of } from 'rxjs';
 
 @Component({
   selector: 'aliya-our-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgFor,AsyncPipe],
   templateUrl: './our-services.component.html',
   styleUrls: ['./our-services.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class OurServicesComponent {
   

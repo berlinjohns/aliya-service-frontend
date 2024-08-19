@@ -1,6 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
-import {  HttpClientModule } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Appliance } from 'src/app/core/models/serviceRequest';
 import { ProductService } from 'src/app/core/services/product/product.service';
@@ -12,8 +11,9 @@ import { NgZone } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
   standalone: true,
-  imports:[NgIf,ReactiveFormsModule,ButtonComponent,NgClass,HttpClientModule],
-  providers:[ProductService]
+  imports:[NgIf,ReactiveFormsModule,ButtonComponent,NgClass,],
+  providers:[],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ModalComponent implements OnInit,OnChanges {
   productService=inject(ProductService);

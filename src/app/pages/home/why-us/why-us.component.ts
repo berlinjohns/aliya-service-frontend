@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {  } from '@angular/common';
 
 @Component({
   selector: 'aliya-why-us',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './why-us.component.html',
   styleUrls: ['./why-us.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

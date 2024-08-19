@@ -1,13 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'aliya-error404-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './error404-page.component.html',
-  styleUrls: ['./error404-page.component.scss']
+  styleUrls: ['./error404-page.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
  
 export class Error404PageComponent {
