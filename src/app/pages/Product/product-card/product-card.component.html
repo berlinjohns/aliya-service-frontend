@@ -12,11 +12,11 @@
   </div>
   <div class="px-5 pb-5 flex-grow flex flex-col justify-between">
     <h5
-      class="text-sm md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2"
+      class="text-sm md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2 h-12 md:h-16"
     >
       {{product.name}}
     </h5>
-    <p class="text-gray-900 dark:text-white">Brand: {{product.company}}</p>
+    <p class="text-gray-900 dark:text-white h-6 md:h-8 text-clip overflow-hidden">Brand: {{product.company}}</p>
     <div class="flex items-center justify-between mt-4">
       <span class="text-sm md:text-3xl font-bold text-gray-900 dark:text-white">₹{{product.price}}</span>
       <aliya-button
