@@ -5,6 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class MenuService {
   isSideBarShowing=signal(false);
+  homeScrollSection!:string;
 
   
   
